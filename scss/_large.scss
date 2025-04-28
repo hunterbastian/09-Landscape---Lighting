@@ -43,8 +43,7 @@ header, nav, main, footer {
     gap: 1.5rem; 
     align-items: start; 
 
-    // Remove title bar overrides
-    section {
-        // Remove specific .service-title-bar styles here
-    }
+    // No overrides needed for section here, styles inherited from _small.scss
+    // section {
+    // }
 }
