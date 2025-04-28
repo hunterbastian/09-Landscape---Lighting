@@ -6,6 +6,7 @@
 	<title>Alpine Landscaping</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" media="screen" href="css/styles.min.css">
+	<link rel="icon" href="images/logo1x.svg" type="image/svg+xml">
 
 <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +24,10 @@
 <body>
 <div id="headerWrapper">
 	<header>
-        <img src="images/logo1x.png" alt="logo">
+        <picture>
+            <source srcset="images/logo3x.svg 3x, images/logo2x.svg 2x, images/logo1x.svg 1x">
+            <img src="images/logo1x.svg" alt="Alpine Landscaping Logo" width="50" height="50">
+        </picture>
 		<span>Alpine Landscaping</span>
         <button id="theButton"></button>
 	</header>
@@ -34,23 +38,23 @@
 <div id="navWrapper">
     <nav>
         <ul id="theNav">
-            <li><a href="#">Clients</a></li>
+            <li class="active"><a href="#">Home</a></li>
             <li class="parent"><a href="#">Services</a>
                 <ul>
-                    <li><a href="#">Brand Identity</a></li>
-                    <li><a href="#">Style Guide</a></li>
-                    <li><a href="#">Design System</a></li>
+                    <li><a href="#">Mowing</a></li>
+                    <li><a href="#">Trimming</a></li>
+                    <li><a href="#">Pruning</a></li>
+                    <li><a href="#">Shoveling</a></li>
                 </ul>
             </li>
-            <li class="active"><a href="#">Best Practices</a></li>
             <li class="parent"><a href="#">Our Team</a>
                 <ul>
-                    <li><a href="#">Designers</a></li>
-                    <li><a href="#">Developers</a></li>
-                    <li><a href="#">Project Managers</a></li>    
+                    <li><a href="#">Landscapers</a></li>
+                    <li><a href="#">Mowers</a></li>
+                    <li><a href="#">Managers</a></li>    
                 </ul> 
             </li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Schedule Service</a></li>
         </ul>
     </nav>
 </div> <!-- end nav wrapper -->
@@ -97,7 +101,7 @@
 
     <!-- Text Overlay Box -->
     <div class="swiper-overlay-box">
-        <p>Premium Landscape Services</p>
+        <p>Premium Landscapes</p>
     </div>
   </div>
 
@@ -123,7 +127,7 @@
         <section>
             <h2>Pruning</h2>
             <img src="images/pruning.webp" width="400" height="250" alt="pruning service">
-            <img src="images/grass.png" width="400" height="250" alt="grass mask" class="service-mask">
+            <img src="images/flowers.png" width="400" height="250" alt="flowers mask" class="service-mask">
         </section>
 
         <section>
@@ -160,8 +164,7 @@
 
     <section>
         <img src="images/hiker2.webp" width="200" heigh="200" alt="customer Two">
-        <p>"As a remote worker and avid hiker, I wanted a backyard that felt like a natural retreat. 
-            Alpine Landscaping absolutely nailed it — beautiful work, super professional, and now it's my favorite place to work and unwind."</p>
+        <p>"Our backyard was completely overgrown, but Alpine Landscaping turned it into a beautiful, low-maintenance space. Their team was professional and communicated clearly throughout the process. We're thrilled with our new oasis!"</p>
     </section>
     
   </div>

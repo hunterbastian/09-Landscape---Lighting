@@ -26,17 +26,53 @@ body {
 
 
 /* --------------------------- HEADER --------------------------- */
-#headerWrapper {border-bottom: 1px solid $greyColor;}
+#headerWrapper {
+    border-bottom: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
 header {
     display: grid;
-    grid-template-columns: 50px auto 44px;
+    grid-template-columns: auto 1fr auto;
     column-gap: $gutter;
-    align-items: center; //vertically
-    padding: .5rem $gutter;
+    align-items: center;
+    padding: 0.8rem $gutter;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    picture {
+        display: flex;
+        align-items: center;
+    }
+    
+    img {
+        width: 40px;
+        height: 40px;
+        margin-right: 0.5rem;
+    }
+    
+    // High-DPI logo support
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        img[src*="logo1x"] {
+            content: url(../images/logo2x.svg);
+        }
+    }
+    
+    @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+        img[src*="logo1x"] {
+            content: url(../images/logo3x.svg);
+        }
+    }
+    
     span {
-        font-size: 1.6rem;
-        font-weight: $lightWeight;
-        color: $primaryColor;
+        font-size: 1.25rem;
+        font-weight: 400;
+        color: #000;
+        letter-spacing: 0.02em;
     }
 } // end header
 
@@ -65,7 +101,7 @@ main {
     h1 {
         padding: 1rem $gutter.5rem $gutter;
         font-size: 1.5rem;
-        color: $secondaryColor;
+        color: #000;
         font-weight: $lightWeight
     }
     p {
@@ -121,7 +157,7 @@ div.parent {
 
 /* --------------------------- FOOTER --------------------------- */
 #footerWrapper {
-    background-color: #F5FFFA;
+    background-color: $greyColor;
     border-top: 1px solid #eaeaea;
     padding: 1rem 0;
 } // end footer wrapper
@@ -129,7 +165,7 @@ div.parent {
 footer {
     font-size: 0.8rem;
     padding: 0 $gutter;
-    color: #000;
+    color: $fontColor;
     text-align: center;
 }// end footer
 
@@ -159,14 +195,10 @@ div.parent {
 .services {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; 
+    gap: 1.5rem;
     padding: 0 $gutter;
 
     section {
-        background-color: white;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         position: relative;
         
         h2 {
@@ -175,9 +207,9 @@ div.parent {
             left: 0;
             right: 0;
             margin: 0;
-            padding: 0.75rem 1rem;
+            padding: 0.25rem 1rem;
             color: $fontColor;
-            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
             font-size: 1.2rem;
             font-weight: $normalWeight;
             text-align: center;
@@ -199,9 +231,26 @@ div.parent {
             width: 100%;
             height: auto;
             pointer-events: none; 
-            z-index: 10;
+            z-index: 4;
         }
     }
+}
+
+// Reset specific mask styles - Revisit based on clarification
+// .services section:nth-child(2) .service-mask {
+//     bottom: -15px;
+// }
+.services section:nth-child(3) .service-mask { // Pruning mask (now flowers)
+   filter: brightness(0) invert(1); // Make the flowers completely white
+   bottom: -20px; // Lower the flowers mask to match trimming section
+   transform: scaleX(-1); // Flip the flowers horizontally
+}
+.services section:nth-child(2) .service-mask { // Trimming mask (flowers)
+   filter: brightness(0) invert(1); // Make the flowers completely white
+   bottom: -20px; // Lower the flowers mask
+}
+.services section:nth-child(4) .service-mask { // Shoveling mask (trees)
+   bottom: -20px; // Lower the trees mask
 }
 
 /* Styles for the testimonial section */
@@ -229,4 +278,26 @@ div.parent {
             color: $fontColor;
         }
     }
+}
+
+.swiper-overlay-box {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 5px;
+  z-index: 10;
+  max-width: 300px;
+  text-align: center;
+  width: 90%;
+  
+  p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  }
 }

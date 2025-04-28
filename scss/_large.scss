@@ -11,14 +11,14 @@ header, nav, main, footer {
     align-items: start;
 
     section {
-        display: grid; // Add grid display here too
-        grid-template-columns: 200px auto; // Larger image
+        display: grid; 
+        grid-template-columns: 150px auto; // Smaller image column
         column-gap: 1.5rem;
         align-items: center; // Align items vertically
 
         img {
-            width: 200px;
-            height: 200px;
+            width: 150px; // Match column size
+            height: 150px; // Match column size
             clip-path: circle(50% at 50% 50%);
             object-fit: cover;
             transition: transform 0.3s ease; 
