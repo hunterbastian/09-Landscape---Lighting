@@ -1,7 +1,10 @@
+@use "sass:color";
+
 /* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
 html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+    overflow-x: hidden;
 }
 
 /*  Apply a natural box layout model to all elements  */
@@ -18,6 +21,7 @@ body {
     font-family: $defaultFont;
     font-weight: $normalWeight;
     color: $fontColor;
+    overflow-x: hidden;
 }
 
 
@@ -88,14 +92,17 @@ main {
 
 div.parent {
     display: grid;
+    grid-template-columns: 1fr 1fr;
 
     section {
-        position: relative;
+        padding: 7px;
         h2{}
         img {
             width: 100%;
             height: auto;
-            display: block;
+            clip-path: circle(50% at 50% 50%);
+            transition: transform 1s;
+            &:hover {transform: rotate(-15deg);}
         }
         img:last-child{
             position: absolute;
@@ -142,7 +149,7 @@ div.parent {
             &:hover {transform: rotate(-15deg);}
         }
         p {
-
+            color: $fontColor;
         }
     } // end section
 } // end parent
@@ -153,35 +160,74 @@ div.parent {
 .services {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; // space between service cards
+    gap: 1.5rem; 
     padding: 0 $gutter;
 
     section {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         position: relative;
-        text-align: center;
-
+        
         h2 {
-            margin: 0 0 .5rem;
-            font-size: 1.25rem;
-            font-weight: $lightWeight;
-            color: $secondaryColor;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            padding: 0.75rem 1rem;
+            color: $fontColor;
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+            font-weight: $normalWeight;
+            text-align: center;
+            z-index: 5;
         }
 
-        // Main service image
-        img:first-child {
+        img:not(.service-mask) {
             width: 100%;
+            aspect-ratio: 16 / 9;
             height: auto;
             display: block;
+            object-fit: cover; 
         }
 
-        // Decorative bottom-edge PNG mask
-        img:last-child {
+        .service-mask {
             position: absolute;
             left: 0;
             bottom: 0;
             width: 100%;
             height: auto;
-            pointer-events: none; // ensure mask isn't interactive
+            pointer-events: none; 
+            z-index: 10;
+        }
+    }
+}
+
+/* Styles for the testimonial section */
+.testimonials {
+    display: grid;
+    grid-template-columns: 1fr; // Stack testimonials on small screens
+    gap: 1rem;
+    padding: 0 $gutter; // Add padding consistent with services
+
+    section {
+        padding: $gutter;
+        text-align: center;
+
+        img {
+            width: 100px; // Smaller images on mobile
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 0.5rem;
+            // Add transition for potential hover effects later
+            transition: transform 0.3s ease;
+        }
+
+        p {
+            color: $fontColor;
         }
     }
 }

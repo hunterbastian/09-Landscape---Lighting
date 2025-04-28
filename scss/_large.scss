@@ -1,54 +1,50 @@
 header, nav, main, footer {
     margin: 0 auto;
-    max-width: 60rem;
+    max-width: 55rem;
 }
 
-div.parent {
-    section {
-        grid-template-columns: 200px auto;
-        column-gap: 8px;
-        > img {
-            clip-path: circle(50% at 50% 50%);
-        } 
-    } // end section
-} // end parent
-
-
-div.parent {
+/* Testimonial section styles for large breakpoint */
+.testimonials {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr; // Still side-by-side
+    gap: 2rem;
+    align-items: start;
+
+    section {
+        display: grid; // Add grid display here too
+        grid-template-columns: 200px auto; // Larger image
+        column-gap: 1.5rem;
+        align-items: center; // Align items vertically
+
+        img {
+            width: 200px;
+            height: 200px;
+            clip-path: circle(50% at 50% 50%);
+            object-fit: cover;
+            transition: transform 0.3s ease; 
+           
+            &:hover {
+               transform: rotate(-15deg); // Keep rotate effect
+            }
+        } 
+
+        p {
+            text-align: left; // Keep text left-aligned
+            font-style: normal;
+            color: $fontColor;
+        }
+    }
 }
 
+/* Services section styles for large breakpoint */
 .services {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    padding: 0 $gutter;
+    grid-template-columns: repeat(4, minmax(0, 1fr)); 
+    gap: 1.5rem; 
+    align-items: start; 
 
+    // Remove title bar overrides
     section {
-        position: relative;
-
-        h2 {
-            margin: 0 0 .5rem;
-            font-size: 1.4rem;
-            font-weight: $lightWeight;
-            text-align: center;
-            color: $secondaryColor;
-        }
-
-        img:first-child {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        img:last-child {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: auto;
-            pointer-events: none;
-        }
+        // Remove specific .service-title-bar styles here
     }
 }

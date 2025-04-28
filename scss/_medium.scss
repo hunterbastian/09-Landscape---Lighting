@@ -47,34 +47,46 @@ li:hover ul {
     left: auto
 }
 
+/* Testimonial section styles for medium breakpoint */
+.testimonials {
+    display: grid;
+    grid-template-columns: 1fr 1fr; // Side-by-side
+    gap: 2rem;
+    align-items: start;
 
-
-
-div.parent {
     section {
         display: grid;
-        grid-template-columns: 140px auto;
-        column-gap: 4px;
+        grid-template-columns: 140px auto; // Image next to text
+        column-gap: 1rem;
+        align-items: center;
         padding: 10px;
-        > img {
+
+        img {
+            width: 140px;
+            height: 140px;
             clip-path: circle(50% at 50% 50%);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: rotate(-15deg);
+            }
         }
-    } // end section
-} // end parent
 
-
-
-div.parent {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+        p {
+           text-align: left; 
+           font-style: normal;
+           color: $fontColor;
+        }
+    }
 }
 
 /* --------------------------- SERVICES GRID --------------------------- */
 .services {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    padding: 0 $gutter;
+    gap: 1.5rem;
+    align-items: start;
 
     section {
         position: relative;
@@ -89,8 +101,10 @@ div.parent {
 
         img:first-child {
             width: 100%;
+            aspect-ratio: 4 / 3;
             height: auto;
             display: block;
+            object-fit: cover;
         }
 
         img:last-child {
