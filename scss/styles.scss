@@ -1,0 +1,45 @@
+@import "normalize";
+
+@import "variables";
+
+/* Small styles - default styles */
+@import "small";
+
+/* Mobile menu styles for small screens only */
+@media only screen and (max-width: 34.9375rem) {
+	@import "mobilemenu";
+}
+
+/* Medium styles */
+@media only screen and (min-width: 35rem) {
+	@import "medium";
+}
+
+/* Large styles */
+@media only screen and (min-width: 64rem) {
+	@import "large";
+}
+
+// Swiper Overlay Box Styles
+.swiper {
+    position: relative; // Needed for absolute positioning of the child
+}
+
+.swiper-overlay-box {
+    position: absolute;
+    bottom: 30px; // Keep near bottom
+    left: 20px; // Position from left edge
+    background-color: rgba(0, 0, 0, 0.3); // Keep dim background
+    color: white;
+    padding: 10px; // Keep reduced padding
+    border-radius: 5px; // Keep rounded corners
+    z-index: 10; // Ensure it's above the slides
+    max-width: 300px; // Reset max-width for corner position
+}
+
+.swiper-overlay-box p {
+    margin: 0;
+    font-size: 1rem; // Adjust as needed
+    color: white; // Explicitly set color here
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); // Added text shadow for readability
+} 

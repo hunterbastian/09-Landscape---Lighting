@@ -1,0 +1,187 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/*  Apply a natural box layout model to all elements  */
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+} // end all elements
+
+
+/* --------------------------- BODY --------------------------- */
+body {
+    height: 100%;
+    font-family: $defaultFont;
+    font-weight: $normalWeight;
+    color: $fontColor;
+}
+
+
+/* --------------------------- HEADER --------------------------- */
+#headerWrapper {border-bottom: 1px solid $greyColor;}
+header {
+    display: grid;
+    grid-template-columns: 50px auto 44px;
+    column-gap: $gutter;
+    align-items: center; //vertically
+    padding: .5rem $gutter;
+    span {
+        font-size: 1.6rem;
+        font-weight: $lightWeight;
+        color: $primaryColor;
+    }
+} // end header
+
+
+/* --------------------------- NAVIGATION STUFF GOES HERE --------------------------- */
+#navWrapper {
+    position: relative; // Establish stacking context
+    z-index: 20; // Make sure it's above the swiper (which has overlay at z-index 10)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------- MAIN --------------------------- */
+main {
+    h1 {
+        padding: 1rem $gutter.5rem $gutter;
+        font-size: 1.5rem;
+        color: $secondaryColor;
+        font-weight: $lightWeight
+    }
+    p {
+        padding: .5rem $gutter;
+        color: #333;
+        line-height: $leading;
+    }
+}// end main
+
+
+
+
+
+.swiper, .swiper img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+
+
+div.parent {
+    display: grid;
+
+    section {
+        position: relative;
+        h2{}
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        img:last-child{
+            position: absolute;
+            bottom: 0;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* --------------------------- FOOTER --------------------------- */
+#footerWrapper {
+    background-color: #F5FFFA;
+    border-top: 1px solid #eaeaea;
+    padding: 1rem 0;
+} // end footer wrapper
+
+footer {
+    font-size: 0.8rem;
+    padding: 0 $gutter;
+    color: #000;
+    text-align: center;
+}// end footer
+
+
+
+
+div.parent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    section {
+        padding: 7px;
+        > img {
+            width: 100%;
+            height: auto;
+            transition: transform 1s;
+            &:hover {transform: rotate(-15deg);}
+        }
+        p {
+
+        }
+    } // end section
+} // end parent
+
+/* --------------------------- CARD STYLES --------------------------- */
+
+/* --------------------------- SERVICES GRID --------------------------- */
+.services {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; // space between service cards
+    padding: 0 $gutter;
+
+    section {
+        position: relative;
+        text-align: center;
+
+        h2 {
+            margin: 0 0 .5rem;
+            font-size: 1.25rem;
+            font-weight: $lightWeight;
+            color: $secondaryColor;
+        }
+
+        // Main service image
+        img:first-child {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        // Decorative bottom-edge PNG mask
+        img:last-child {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: auto;
+            pointer-events: none; // ensure mask isn't interactive
+        }
+    }
+}

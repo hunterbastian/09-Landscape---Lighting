@@ -1,0 +1,54 @@
+header, nav, main, footer {
+    margin: 0 auto;
+    max-width: 60rem;
+}
+
+div.parent {
+    section {
+        grid-template-columns: 200px auto;
+        column-gap: 8px;
+        > img {
+            clip-path: circle(50% at 50% 50%);
+        } 
+    } // end section
+} // end parent
+
+
+div.parent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 0 $gutter;
+
+    section {
+        position: relative;
+
+        h2 {
+            margin: 0 0 .5rem;
+            font-size: 1.4rem;
+            font-weight: $lightWeight;
+            text-align: center;
+            color: $secondaryColor;
+        }
+
+        img:first-child {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        img:last-child {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: auto;
+            pointer-events: none;
+        }
+    }
+}
